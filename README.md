@@ -14,10 +14,14 @@ cd erlang-cluster-chat
 ```
 
 ```erlang
-%% Go back in the first shell and write..
+%% Go back in the first shell and write (use yout hostname!)
 1> net_kernel:connect(node2@hostname).
+
+%% Now you should be able to send messages between shells.
 2> chat:send_message("Hello Cthulhu").
-%% Go check the second shell
+
+%% Now you can try to open a third shell and join the cluster, then a fourth, etc etc
+%% Messages will be broadcasted to all of them.
 ```
 
-Note: BEAM should be able to resolve *hostname* to your current ip; ie through a "127.0.0.1 hostname" entry in /etc/hosts.
+Note: BEAM must be able to resolve *hostname* to your current ip; ie through a "127.0.0.1 hostname" entry in /etc/hosts.
